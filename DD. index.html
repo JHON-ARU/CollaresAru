@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aru - Collar de Plata para Hombre</title>
+    <style>
+        :root {
+            --primary: #925f33;
+            --secondary: #1a1a1a;
+            --accent: #d4af37;
+            --text: #f0f0f0;
+            --text-secondary: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .product-images {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--text);
+            font-weight: 300;
+        }
+
+        .product-description {
+            margin-bottom: 25px;
+            color: var(--text-secondary);
+        }
+
+        .product-price {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin: 30px 0;
+            font-weight: 500;
+        }
+
+        .product-details {
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            margin-right: 10px;
+            min-width: 100px;
+            color: var(--text-secondary);
+        }
+
+        .detail-value {
+            color: var(--text);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent);
+            color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(210, 167, 60, 0.3);
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+
+        .whatsapp-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .payment-methods {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .payment-methods h3 {
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .payment-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .payment-logo {
+            width: 70px;
+            height: 45px;
+            object-fit: contain;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            filter: grayscale(30%);
+        }
+
+        .payment-logo:hover {
+            transform: translateY(-3px);
+            filter: grayscale(0%) brightness(1.1);
+            box-shadow: 0 5px 15px rgba(210, 167, 60, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .product-title {
+                font-size: 1.8rem;
+            }
+            
+            .product-price {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Efecto parallax para la sección principal */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="fade-in">
+            <h1 class="logo">ARU</h1>
+            <p class="tagline">Elegancia en plata</p>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-bg">
+                <img src="ima/img4.png" alt="Fondo abstracto de textura de plata pulida con reflejos dorados y tonos oscuros, estilo de lujo premium" style="width: 100%; height: 100%; object-fit: cover;"/>
+            </div>
+            <div class="hero-content">
+                <h2 class="hero-title fade-in">Collar para Hombre</h2>
+                <p class="hero-subtitle fade-in">Una pieza única en plata fina</p>
+                <a href="#producto" class="cta-button fade-in">Ver Detalles</a>
+            </div>
+        </section>
+
+        <section id="producto" class="product-container">
+            <div class="product-images fade-in">
+                <div class="main-image">
+                    <img src="ima/img6.png" alt="Collar de plata para hombre estilo moderno, primer plano mostrando los detalles del diseño geométrico y acabado pulido" id="mainImage" style="width: 100%; height: auto;"/>
+                </div>
+                <div class="thumbnail-container">
+                    <img src="ima/img3.png" alt="Primer plano del collar de plata mostrando el sistema de cierre ajustable con detalles artesanales" class="thumbnail" onclick="changeImage(this)"/>
+                    <img src="ima/img6.png" alt="Modelo masculino luciendo el collar Aru con camisa formal negra, estilo elegante" class="thumbnail" onclick="changeImage(this)"/>
+                    <img src="ima/img5.png" alt="Detalle de artesanía del collar Aru mostrando el grabado único y patrón exclusivo" class="thumbnail" onclick="changeImage(this)"/>
+                    <img src="ima/img1.png" alt="Collar Aru presentado en su estuche de lujo negro con detalles dorados" class="thumbnail" onclick="changeImage(this)"/>
+                </div>
+            </div>
+
+            <div class="product-info fade-in">
+                <h2 class="product-title">Collar Aru</h2>
+                <p class="product-description">
+                    Presentamos el exclusivo collar Aru: una pieza de joyería masculina en plata de ley 925, diseñada para hombres que valoran el estilo sofisticado y la calidad excepcional. Cada collar está hecho a mano por artesanos expertos.
+                </p>
+
+                <div class="product-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Material:</span>
+                        <span class="detail-value">Plata 925</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Largo:</span>
+                        <span class="detail-value">50cm ajustable</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Peso:</span>
+                        <span class="detail-value">25g</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Acabado:</span>
+                        <span class="detail-value">Pulido brillante</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Incluye:</span>
+                        <span class="detail-value">Estuche de lujo y certificado</span>
+                    </div>
+                </div>
+
+                <div class="product-price">$299<small>.99</small></div>
+
+                <button class="cta-button whatsapp-button" onclick="window.open('https://wa.link/udp6y8', '_blank')">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTM4MC45IDk3LjFjLTI3LjUtMjUuNS03MC44LTMyLTExNi4xLTIyLjQtNTkuMiAxMi41LTExMS41IDUzLjUtMTQ0LjEgOTYuMS0zMi42IDQyLjYtNTEuMiA5MC4yLTQ5LjUgMTM3LjkgMi43IDQ3LjcgMjAuNiA5NS4zIDU4LjEgMTMyLjcgMzcuNSAzNy41IDg1IDU1LjQgMTMyLjcgNTguMWMuNSAwIDEgLjEgMS41LjEgMjkuNiAwIDU4LjEtOC42IDgyLjgtMjQuOCAzMC4xLTE5LjMgNDUuNS00Ni42IDQ5LjEtODQuNiAzLjYtMzggOS4zLTc5LjUtMjAuNC0xMTMuNi0yOS43LTM0LjEtODIuNC01Ny4zLTE0Mi40LTQ1LjktMTQuOSAyLjctMzAuNCA0LjgtNDUuOCA1LjktMTcuOCAxLjYtMzkuMSAyLjQtNjAuNSAxLjctNy44LS4yLTE1LjYtLjUtMjMuMy0xVjIyMy41bDEzMS4zIDc1LjFjNi4zIDMuNiAxMS44IDguMSAxNi4zIDEzLjMgMTMuMiAxNi4xIDEyLjkgNDAuNy0uNyA1Ni4zLTkuNyAxMC43LTIzLjIgMTcuNC0zNy42IDE5LjEtMTMuOSAxLjgtMjcuMiAwLTM5LjUtNS44bC03OS41LTQ1LjJ2MzEuOGMwIDIzLjctMy40IDQ2LjctOS43IDY4LjItNi40IDIxLjUtMTUuOSA0MS43LTI4LjYgNjAuNS0xMi44IDE4LjgtMjguNSAzNS45LTQ2LjkgNTEuNEMzMDAuNSA0MzUgMzE4LjkgNDQwIDMzNi45IDQ0MmMzLjMuMyA2LjYuNSA5LjkuNSAyMC42IDAgNDEtMy44IDYwLjMtMTEuMiAxOS4zLTcuNCAzNi45LTE4LjkgNTEuOC0zMy44IDE2LjUtMTYuNSA0Mi41LTQyLjQ0IDQyLjUtNzguNzUuMS0zNi4zMS0yNS45LTczLjY0LTU5LjMtOTkuNDR6Ii8+PC9zdmc+" class="whatsapp-icon" alt="WhatsApp logo"/>
+                    Contactar por WhatsApp
+                </button>
+            </div>
+        </section>
+
+        <section class="payment-methods fade-in">
+            <h3>Métodos de Pago</h3>
+            <div class="payment-logos">
+                <img src="ima/yape.png" alt="Pago con Yape" class="payment-logo">
+                <img src="ima/plin.png" alt="Pago con Plin" class="payment-logo">
+                <img src="ima/bcp.png" alt="Pago con BCP" class="payment-logo">
+                <img src="ima/bina1.png" alt="Pago con Binance" class="payment-logo">
+                <img src="ima/visa.png" alt="Pago con Visa" class="payment-logo">
+            </div>
+        </section>
+
+        <footer class="fade-in">
+            <p>© 2023 Aru. Todos los derechos reservados.</p>
+            <p>Joyas artesanales en plata de ley 925</p>
+        </footer>
+    </div>
+
+    <script>
+        // Cambiar imagen principal al hacer clic en miniaturas
+        function changeImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src.replace('200x200', '500x500');
+            mainImage.alt = thumbnail.alt;
+        }
+
+        // Efecto de desplazamiento suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Efecto de carga de elementos
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Inicializar
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            window.addEventListener('load', fadeInOnScroll);
+        });
+    </script>
+</body>
+</html>
